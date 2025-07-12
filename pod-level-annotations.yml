@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-pod-level-annotations
+  namespace: my-namespace
+  labels:
+    app: my-app
+  annotations: 
+    author: "Arun kumar Akula"
+    description: "This Deployment is created by Arun kumar"
+spec: 
+  replicas: 3
+  selector:
+    matchLabels: 
+      app: my-app
+  template:
+    metadata: 
+      labels: 
+        app: my-app
+      annotations: 
+        createdBy: "Arunkumar" 
+        description: "This pod is created by Arun"
+    spec:
+      containers:
+      - name: my-nginx-pod
+        image: nginx
+        ports:        
+        - containerPort: 80
