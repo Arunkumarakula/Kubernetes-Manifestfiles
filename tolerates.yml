@@ -1,0 +1,21 @@
+# Taint the node before creating the pod using :
+# kubectl taint nodes <node-name> dontallow=arun:NoSchedule
+
+# Now if you want to check your node is tainted or not create a simple pod and apply and check your pod is in pending state.
+# Now you can create file to allow the pod on node.
+
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: taint-pod  
+spec:
+  containers:
+  - name: taint-pod
+    image: httpd
+  tolerations:
+  - key: "dontallow"
+    operator: "Equal"
+    value: "arun"
+    effect: "NoSchedule"
+

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: pod-on-selected-node
+  namespace: arun-nm
+spec:
+  nodeName: i-04cab493551aac0ad
+  containers:
+  - name: my-pod
+    image: httpd
+    ports: 
+    - containerPort: 80
