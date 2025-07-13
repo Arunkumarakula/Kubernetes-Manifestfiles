@@ -1,0 +1,23 @@
+# Before create a pod label the node using:
+# kubectl label nodes <your-node-name> team=arun
+
+
+apiVersion: v1
+kind:   Pod
+metadata: 
+  name: pod-node-affinity 
+spec: 
+  affinity: 
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: team
+            operator: In
+            values:
+            - arun
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+      - containerPort: 80
