@@ -4,7 +4,7 @@ metadata:
   name: my-deployment
   namespace: my-namespace
   labels:
-    app: my-app
+    app: my-appp
   annotations: 
     createdBy: "Arun kumar Akula"
     description: "This deployment is created by Arun kumar"
